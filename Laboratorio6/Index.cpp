@@ -7,9 +7,9 @@ Index::Index()
 
 void Index::addTransaction(Transaction transaction)
 {
-	//Genera Errore
-	_transazione[_ntransaction].operator=(transaction);
-	_ntransaction++;
+	//_transazione[_ntransaction].operator=(transaction);
+	++_ntransaction;
+	_transazione.push_back(transaction);
 }
 
 void Index::removeTransaction(Transaction transaction)
