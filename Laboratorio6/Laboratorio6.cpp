@@ -30,16 +30,27 @@ int main()
 	system("cls");
 	//--------------------------------------------
 	//File Reading
-	Index indice;
-	indice.addTransaction(Transaction(Date(29, 9, 1997), "Prova", Amount(55)));
-	indice.addTransaction(Transaction(Date(22, 3, 2000), "Prova2", Amount(88)));
-	indice.addTransaction(Transaction(Date(22, 3, 2003), "Prova3", Amount(-88)));
-	indice.addTransaction(Transaction(Date(22, 3, 2005), "Prova4", Amount(-88)));
-	indice.print();
-	indice.removeTransaction(2);
-	indice.print();
+	int day = 0; int  month = 0; int year = 0; double amount = 0; int n = 0;
+	string stringa; Index indice;
+	do
+	{
+		n++;
+		file >> day;
+		file.get();
+		file >> month;
+		file.get();
+		file >> year;
+		file >> stringa >> amount;
+		file.get();
+		char value = file.get();
+		if (value == '-') amount = -amount;
+		indice.addTransaction(Transaction(Date(day, month, year), stringa, Amount(amount)));
+		//cout << day << endl << year << endl << month << endl << stringa << endl << amount << endl;
+	} while (!file.eof());
+	indice.removeTransaction(n - 1);
 	//--------------------------------------------
 	//Ui Drawing
+
 	//--------------------------------------------
 	//File Closing
 	file.close();
