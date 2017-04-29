@@ -69,6 +69,15 @@ bool Date::operator>(const Date& data) const
 	}
 }
 
+bool Date::operator==(const Date& cmp) const
+{
+	if (_day == cmp.getDay() && _month == cmp.getMonth() && _year == cmp.getYear())
+	{
+		return true;
+	}
+	else { return false; }
+}
+
 int Date::getYear() const
 {
 	return _year;

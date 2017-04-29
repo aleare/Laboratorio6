@@ -11,6 +11,7 @@ public:
 	Transaction(const Transaction &copy);
 
 	void operator=(const Transaction &equal);
+	bool operator==(const Transaction &equal) const;
 
 	//Getters
 	Date getData();

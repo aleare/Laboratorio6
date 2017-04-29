@@ -16,6 +16,14 @@ void Amount::operator=(const Amount& equal)
 	_amount = equal.getAmount();
 }
 
+bool Amount::operator==(const Amount& cmp) const
+{
+	if (_amount == cmp._amount) {
+		return true;
+	}
+	else { return false; }
+}
+
 float Amount::getAmount() const
 {
 	return _amount;

@@ -10,6 +10,7 @@ public:
 	//Operators Overloads
 	void operator=(const Date &equal);
 	bool operator>(const Date &data) const;
+	bool operator==(const Date &cmp) const;
 	//Getters
 	int getYear() const;
 	int getMonth() const;

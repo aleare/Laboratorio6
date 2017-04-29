@@ -7,6 +7,7 @@ public:
 	Amount(double amount);
 	Amount(const Amount &copy);
 	void operator=(const Amount &equal);
+	bool operator==(const Amount &cmp) const;
 	//Getter
 	float getAmount() const;
 	//Setter
@@ -17,5 +18,5 @@ public:
 	bool isNegative() const;
 	~Amount();
 private:
-	float _amount;
+	double _amount;
 };

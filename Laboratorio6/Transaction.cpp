@@ -32,6 +32,15 @@ void Transaction::operator=(const Transaction& equal)
 	setDescription(equal._description);
 }
 
+bool Transaction::operator==(const Transaction& equal) const
+{
+	if (_amount.operator==(equal._amount) && _data == equal._data&&_description == equal.getDescription())
+	{
+		return true;
+	}
+	else { return false; }
+}
+
 Date Transaction::getData()
 {
 	Date data(_data);

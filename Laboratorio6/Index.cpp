@@ -14,7 +14,13 @@ void Index::addTransaction(Transaction transaction)
 
 void Index::removeTransaction(Transaction transaction)
 {
-	//Da Implementare
+	for (int i = 0; i < _transazione.size(); ++i)
+	{
+		if (_transazione[i].operator==(transaction))
+		{
+			_transazione.erase(_transazione.begin() + i);
+		}
+	}
 }
 
 void Index::removeTransaction(int ntransaction)
