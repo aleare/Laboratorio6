@@ -7,6 +7,7 @@ Index::Index()
 
 void Index::addTransaction(Transaction transaction)
 {
+	//Genera Errore
 	_transazione[_ntransaction].operator=(transaction);
 	_ntransaction++;
 }
