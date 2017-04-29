@@ -26,6 +26,9 @@ public:
 	bool dataMissing() const;
 	bool isPositive() const;
 
+	//Debug
+	void str();
+
 	~Transaction();
 private:
 	Date _data;

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Amount.h"
 
-Amount::Amount(float amount)
+Amount::Amount(double amount)
 {
 	_amount = amount;
 }
@@ -26,7 +26,7 @@ void Amount::setAmount(float amount)
 	_amount = amount;
 }
 
-std::string Amount::str()
+std::string Amount::str() const
 {
 	std::string stringa;
 	if (_amount > 0)
@@ -34,7 +34,7 @@ std::string Amount::str()
 		stringa.append("+  ");
 		stringa.append(std::to_string(_amount));
 	}
-	else if (_amount = 0)
+	else if (_amount == 0)
 	{
 		stringa.append(std::to_string(_amount));
 	}

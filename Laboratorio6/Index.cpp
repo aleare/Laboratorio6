@@ -19,10 +19,10 @@ void Index::removeTransaction(Transaction transaction)
 void Index::removeTransaction(int ntransaction)
 {
 	delete &_transazione[ntransaction];
-	for (int i = ntransaction; i < N; ++i)
-	{
-		_transazione[i] = _transazione[i + 1];
-	}
+	//for (int i = ntransaction; i < N; ++i)
+	//{
+		//_transazione[i] = _transazione[i + 1];
+	//}
 }
 
 float Index::monthlyExpenses(Date data)
@@ -54,10 +54,14 @@ float Index::yearlyExpenses(Date data)
 void Index::orderTransactions()
 {
 	//Probabile ERRORE ! (Static)
-	std::sort(_transazione, _transazione + _ntransaction, valueCmp);
+	std::sort(_transazione.begin(), _transazione.end(), valueCmp);
 }
 
 void Index::report()
+{
+}
+
+void Index::yearSummary()
 {
 }
 
@@ -69,6 +73,14 @@ bool Index::valueCmp(Transaction  &a, Transaction  &b)
 		return false;
 	}
 	else { return true; }
+}
+
+void Index::print()
+{
+	for (int i = 0; i < _ntransaction; ++i)
+	{
+		_transazione[i].str();
+	}
 }
 
 Index::~Index()

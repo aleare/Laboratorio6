@@ -1,6 +1,7 @@
 #pragma once
 #include "Transaction.h"
 #include "Date.h"
+#include <vector>
 #include "Rectangle.h"
 #include <algorithm>
 #define N 50
@@ -19,11 +20,12 @@ public:
 	static bool valueCmp(Transaction  & a, Transaction  & b);
 
 	// Output & Order Functions
+	void print();
 	void orderTransactions();
 	void report();
 	void yearSummary();
 	~Index();
 private:
-	Transaction _transazione[N];
+	vector<Transaction> _transazione;
 	int _ntransaction = 0;
 };

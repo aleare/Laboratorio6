@@ -4,7 +4,7 @@
 class Amount
 {
 public:
-	Amount(float amount);
+	Amount(double amount);
 	Amount(const Amount &copy);
 	void operator=(const Amount &equal);
 	//Getter
@@ -12,7 +12,7 @@ public:
 	//Setter
 	void setAmount(float amount);
 	//OUT: A string containg "+/-   <amount>"
-	std::string str();
+	std::string str() const;
 	bool isPositive() const;
 	bool isNegative() const;
 	~Amount();

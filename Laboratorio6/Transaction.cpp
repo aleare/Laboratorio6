@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Transaction.h"
+#include <iostream>
 
 Transaction::Transaction() : _data(01, 01, 2000), _amount(0)
 {
@@ -75,6 +76,11 @@ bool Transaction::dataMissing() const
 bool Transaction::isPositive() const
 {
 	return _amount.isPositive();
+}
+
+void Transaction::str()
+{
+	std::cout << _data.str() << " " << _description << " " << _amount.str() << std::endl;
 }
 
 Transaction::~Transaction()
