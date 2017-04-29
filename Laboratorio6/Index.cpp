@@ -19,11 +19,7 @@ void Index::removeTransaction(Transaction transaction)
 
 void Index::removeTransaction(int ntransaction)
 {
-	delete &_transazione[ntransaction];
-	//for (int i = ntransaction; i < N; ++i)
-	//{
-		//_transazione[i] = _transazione[i + 1];
-	//}
+	_transazione.erase(_transazione.begin() + ntransaction);
 }
 
 float Index::monthlyExpenses(Date data)
@@ -78,7 +74,7 @@ bool Index::valueCmp(Transaction  &a, Transaction  &b)
 
 void Index::print()
 {
-	for (int i = 0; i < _ntransaction; ++i)
+	for (int i = 0; i < _transazione.size(); ++i)
 	{
 		_transazione[i].str();
 	}
