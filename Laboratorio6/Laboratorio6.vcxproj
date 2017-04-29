@@ -141,7 +141,9 @@
   <ItemGroup>
     <ClInclude Include="Amount.h" />
     <ClInclude Include="Date.h" />
+    <ClInclude Include="Format.h" />
     <ClInclude Include="Index.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -152,6 +154,7 @@
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="Index.cpp" />
     <ClCompile Include="Laboratorio6.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

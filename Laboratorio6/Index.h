@@ -3,6 +3,7 @@
 #include "Date.h"
 #include <vector>
 #include "Rectangle.h"
+#include "Menu.h"
 #include <algorithm>
 #define N 50
 class Index
@@ -20,12 +21,14 @@ public:
 	static bool valueCmp(Transaction  & a, Transaction  & b);
 
 	// Output & Order Functions
+	void init();
 	void print();
 	void orderTransactions();
 	void report();
 	void yearSummary();
 	~Index();
 private:
+	Menu menu;
 	vector<Transaction> _transazione;
 	int _ntransaction = 0;
 };

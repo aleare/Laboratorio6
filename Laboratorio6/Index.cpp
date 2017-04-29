@@ -78,6 +78,11 @@ bool Index::valueCmp(Transaction  &a, Transaction  &b)
 	else { return true; }
 }
 
+void Index::init()
+{
+	menu.printMain();
+}
+
 void Index::print()
 {
 	for (int i = 0; i < _transazione.size(); ++i)

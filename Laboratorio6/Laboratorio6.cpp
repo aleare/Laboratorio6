@@ -25,7 +25,7 @@ int main()
 		cout << "ERRORE NELL'APERTURA DEL FILE !" << endl;
 		return 1;
 	}
-	cout << "File Aperto Correttamente !" << endl;
+	cout << "File Aperto Correttamente !" << endl << endl;
 	system("pause");
 	system("cls");
 	//--------------------------------------------
@@ -45,12 +45,11 @@ int main()
 		char value = file.get();
 		if (value == '-') amount = -amount;
 		indice.addTransaction(Transaction(Date(day, month, year), stringa, Amount(amount)));
-		//cout << day << endl << year << endl << month << endl << stringa << endl << amount << endl;
 	} while (!file.eof());
 	indice.removeTransaction(n - 1);
 	//--------------------------------------------
 	//Ui Drawing
-
+	indice.init();
 	//--------------------------------------------
 	//File Closing
 	file.close();
