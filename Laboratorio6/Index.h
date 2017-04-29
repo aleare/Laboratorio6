@@ -2,6 +2,7 @@
 #include "Transaction.h"
 #include "Date.h"
 #include "Rectangle.h"
+#include <algorithm>
 #define N 50
 class Index
 {
@@ -14,6 +15,9 @@ public:
 	// Expenses Calculator
 	float monthlyExpenses(Date data);
 	float yearlyExpenses(Date data);
+
+	static bool valueCmp(Transaction  & a, Transaction  & b);
+
 	// Output & Order Functions
 	void orderTransactions();
 	void report();

@@ -31,7 +31,7 @@ void Date::operator=(const Date& equal)
 	_iscorrect = equal.isCorrect();
 }
 
-bool Date::operator>(const Date& data)
+bool Date::operator>(const Date& data) const
 {
 	if (_year > data.getYear())
 	{
@@ -39,6 +39,33 @@ bool Date::operator>(const Date& data)
 	}
 	else
 	{
+		if (_year == data.getYear())
+		{
+			if (_month > data.getMonth())
+			{
+				return true;
+			}
+			else
+			{
+				if (_month == data.getMonth())
+				{
+					if (_day > data.getDay())
+					{
+						return true;
+					}
+					else
+					{
+						if (_day == data.getDay())
+						{
+							return true;
+						}
+						else { return false; }
+					}
+				}
+				else { return false; }
+			}
+		}
+		else { return false; }
 	}
 }
 

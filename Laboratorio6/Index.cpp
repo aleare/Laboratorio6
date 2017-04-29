@@ -53,11 +53,22 @@ float Index::yearlyExpenses(Date data)
 
 void Index::orderTransactions()
 {
-	Transaction copytransaction();
-	for (int i = 0; i < _ntransaction; ++i)
+	//Probabile ERRORE ! (Static)
+	std::sort(_transazione, _transazione + _ntransaction, valueCmp);
+}
+
+void Index::report()
+{
+}
+
+bool Index::valueCmp(Transaction  &a, Transaction  &b)
+{
+	//Probabile ERRORE ! (Static)
+	if (a.getData().operator>(b.getData()))
 	{
-		//if (_transazione[i].getData().
+		return false;
 	}
+	else { return true; }
 }
 
 Index::~Index()

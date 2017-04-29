@@ -9,7 +9,7 @@ public:
 	Date(const Date &copy);
 	//Operators Overloads
 	void operator=(const Date &equal);
-	bool operator>(const Date &data);
+	bool operator>(const Date &data) const;
 	//Getters
 	int getYear() const;
 	int getMonth() const;

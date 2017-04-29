@@ -15,7 +15,7 @@ int main()
 {
 	//File Opening
 	string nomefile;
-	cout << "Inserire il nome del file da aprire:" << endl;
+	cout << "Inserire il nome del File da aprire:" << endl;
 	cin >> nomefile;
 	fstream file;
 	file.open(nomefile);
@@ -25,6 +25,9 @@ int main()
 		return 1;
 	}
 	cout << "File Aperto Correttamente !";
+	cout << "Premere INVIO per continuare...";
 	system("cls");
 	//--------------------------------------------
+
+	file.close();
 }
