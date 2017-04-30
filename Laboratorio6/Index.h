@@ -20,8 +20,11 @@ public:
 
 	static bool valueCmp(Transaction  & a, Transaction  & b);
 
+	//UI Opzions
+	bool init() const;
+	bool selection(int selection) const;
+
 	// Output & Order Functions
-	void init();
 	void print();
 	void orderTransactions();
 	void report();

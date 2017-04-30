@@ -78,9 +78,51 @@ bool Index::valueCmp(Transaction  &a, Transaction  &b)
 	else { return true; }
 }
 
-void Index::init()
+bool Index::init() const
 {
+	system("cls");
 	menu.printMain();
+	int select;
+	cin >> select;
+	if (selection(select) == true)
+	{
+		return true;
+	}
+	else { return false; }
+}
+
+bool Index::selection(int selection) const
+{
+	string sel;
+	switch (selection)
+	{
+	case(1):
+		menu.debug();
+		cin >> sel;
+		init();
+		return false;
+	case(2):
+		return false;
+	case(3):
+		return false;
+	case(4):
+		return false;
+	case(5):
+		return false;
+	case(6):
+		menu.exit();
+		cin >> sel;
+		//Implementare il salvataggio
+		return true;
+	default:
+		int sselection;
+		std::cout
+			<< "Selezione non corretta, riprovare...\n"
+			<< ">> ";
+		std::cin >> sselection;
+		Index::selection(sselection);
+		return false;
+	}
 }
 
 void Index::print()

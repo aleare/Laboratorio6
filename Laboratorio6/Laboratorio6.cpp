@@ -27,7 +27,6 @@ int main()
 	}
 	cout << "File Aperto Correttamente !" << endl << endl;
 	system("pause");
-	system("cls");
 	//--------------------------------------------
 	//File Reading
 	int day = 0; int  month = 0; int year = 0; double amount = 0; int n = 0;
@@ -49,8 +48,10 @@ int main()
 	indice.removeTransaction(n - 1);
 	//--------------------------------------------
 	//Ui Drawing
-	indice.init();
-	//--------------------------------------------
-	//File Closing
-	file.close();
+	if (indice.init() == true) { //Chiusura
+		//File Closing
+		cout << "\n";
+		file.close();
+		return 0;
+	}
 }
