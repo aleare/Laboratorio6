@@ -30,7 +30,7 @@ int main()
 	//--------------------------------------------
 	//File Reading
 	int day = 0; int  month = 0; int year = 0; double amount = 0; int n = 0;
-	string stringa; Index indice;
+	string stringa; Index index;
 	do
 	{
 		n++;
@@ -43,12 +43,12 @@ int main()
 		file.get();
 		char value = file.get();
 		if (value == '-') amount = -amount;
-		indice.addTransaction(Transaction(Date(day, month, year), stringa, Amount(amount)));
+		index.addTransaction(Transaction(Date(day, month, year), stringa, Amount(amount)));
 	} while (!file.eof());
-	indice.removeTransaction(n - 1);
+	index.removeTransaction(n - 1);
 	//--------------------------------------------
 	//Ui Drawing
-	if (indice.init() == true) { //Chiusura
+	if (index.init() == true) { //Chiusura
 		//File Closing
 		cout << "\n";
 		file.close();

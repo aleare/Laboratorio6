@@ -21,17 +21,21 @@ public:
 	static bool valueCmp(Transaction  & a, Transaction  & b);
 
 	//UI Opzions
-	bool init() const;
-	bool selection(int selection) const;
+	bool init();
+	bool selection(int selection);
 
+	//Cases
+	void menuAddTransaction();
+	void menuRemoveTransaction();
 	// Output & Order Functions
 	void print();
 	void orderTransactions();
 	void report();
 	void yearSummary();
 	~Index();
+	vector<Transaction> _transazione;
+
 private:
 	Menu menu;
-	vector<Transaction> _transazione;
-	int _ntransaction = 0;
+	// vector<Transaction> _transazione;
 };

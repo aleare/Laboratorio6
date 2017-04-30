@@ -22,6 +22,39 @@ void Menu::printMain()
 		<< Format::endline(MENUSIZE)
 		<< "\n\n" << ">>";
 }
+
+void Menu::addTransaction()
+{
+}
+
+void Menu::transactionAdded(string transaction)
+{
+	std::cout
+		<< Format::textline("Transazione aggiunta correttamente!", MENUSIZE)
+		<< Format::blanckline(MENUSIZE)
+		<< Format::textline("La transazione e':", MENUSIZE)
+		<< Format::textline(transaction, MENUSIZE)
+		<< Format::blanckline(MENUSIZE)
+		<< Format::textline("Salvare (S/N)", MENUSIZE)
+		<< Format::endline(MENUSIZE)
+		<< "\n\n";
+}
+
+void Menu::removeTransactionI()
+{
+	std::cout
+		<< Format::textline("Ecco la lista di tutte le transazioni", MENUSIZE)
+		<< Format::blanckline(MENUSIZE);
+}
+
+void Menu::removeTransactionE()
+{
+	std::cout
+		<< Format::innerline(MENUSIZE)
+		<< Format::textline("Si prega di selezionare il numero corrispondente:", MENUSIZE)
+		<< Format::endline(MENUSIZE);
+}
+
 void Menu::exit()
 {
 	system("cls");
@@ -41,6 +74,13 @@ void Menu::debug()
 		<< Format::textline("Premere un tasto per tornare al menu", MENUSIZE)
 		<< Format::endline(MENUSIZE)
 		<< "\n\n" << ">>";
+}
+
+void Menu::listTransacion(string transaction, int number)
+{
+	std::cout
+		<< Format::opz(number, transaction, MENUSIZE)
+		<< Format::blanckline(MENUSIZE);
 }
 
 Menu::~Menu()

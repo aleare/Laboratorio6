@@ -1,4 +1,6 @@
 #pragma once
+#include <sstream>
+#include <string>
 #include "Date.h"
 #include "Amount.h"
 class Transaction
@@ -27,8 +29,9 @@ public:
 	bool dataMissing() const;
 	bool isPositive() const;
 
-	//Debug
-	void str();
+	//Debug/Output
+	void out() const;
+	std::string str() const;
 
 	~Transaction();
 private:

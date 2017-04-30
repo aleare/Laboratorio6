@@ -87,9 +87,16 @@ bool Transaction::isPositive() const
 	return _amount.isPositive();
 }
 
-void Transaction::str()
+void Transaction::out() const
 {
 	std::cout << _data.str() << " " << _description << " " << _amount.str() << std::endl;
+}
+
+std::string Transaction::str() const
+{
+	std::stringstream ss;
+	ss << _data.str() << " " << _description << " " << _amount.str();
+	return ss.str();
 }
 
 Transaction::~Transaction()
