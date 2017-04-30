@@ -75,6 +75,29 @@ string Menu::saveFile()
 	return out;
 }
 
+void Menu::report()
+{
+	std::cout
+		<< Format::textline("Ecco la lista di tutte le transazioni:", MENUSIZE)
+		<< Format::innerline(MENUSIZE)
+		<< Format::transactionTitle("Data", "Descrizione", "Guadagni", "Perdite")
+		<< Format::innerline(MENUSIZE);
+}
+
+void Menu::reportE()
+{
+	std::cout
+		<< Format::blanckline(MENUSIZE)
+		<< Format::endline(MENUSIZE);
+}
+
+void Menu::transaction(string data, string description, string amount, bool positive)
+{
+	std::cout
+		<< Format::transaction(data, description, amount, positive)
+		<< Format::innerline(MENUSIZE);
+}
+
 void Menu::exit()
 {
 	system("cls");

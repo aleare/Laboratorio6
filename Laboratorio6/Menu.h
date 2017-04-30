@@ -19,6 +19,9 @@ public:
 	static void removeTransactionI();
 	static void removeTransactionE();
 	static string saveFile();
+	static void report();
+	static void reportE();
+	static void	transaction(string data, string description, string amount, bool positive);
 	static void exit();
 	//Debug
 	static void debug();

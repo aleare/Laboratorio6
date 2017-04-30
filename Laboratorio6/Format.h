@@ -113,4 +113,41 @@ public:
 		out.append("|\n");
 		return out;
 	}
+	static std::string transaction(string data, string description, string amount, bool positive = true)
+	{
+		string out(" |  ");
+		amount.resize(9);
+		out.append(center(data, 18));
+		out.append(" |  ");
+		out.append(center(description, 18));
+		if (positive == true)
+		{
+			out.append("|");
+			out.append(center(amount, 12));
+			out.append("|  ");
+			out.append("          |\n");
+		}
+		else
+		{
+			out.append("|  ");
+			out.append("          |");
+			out.append(center(amount, 12));
+			out.append("|\n");
+		}
+		return out;
+	}
+	static std::string transactionTitle(string data, string description, string amount, string negativeamount)
+	{
+		string out(" |  ");
+		amount.resize(9);
+		out.append(center(data, 18));
+		out.append(" |  ");
+		out.append(center(description, 18));
+		out.append("|");
+		out.append(center(amount, 12));
+		out.append("|");
+		out.append(center(negativeamount, 12));
+		out.append("|\n");
+		return out;
+	}
 };

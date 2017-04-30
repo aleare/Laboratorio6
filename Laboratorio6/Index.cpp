@@ -71,6 +71,14 @@ void Index::orderTransactions()
 
 void Index::report()
 {
+	Menu::report();
+	for (int i = 0; i < _transazione.size(); ++i)
+	{
+		Menu::transaction(_transazione[i].getData().str(), _transazione[i].getDescription(), std::to_string(_transazione[i].getAmount().getAmount()), _transazione[i].getAmount().isPositive());
+	}
+	Menu::reportE();
+	system("pause");
+	init();
 }
 
 void Index::yearSummary()
@@ -127,6 +135,8 @@ bool Index::selection(int selection)
 		init();
 		return false;
 	case(4)://Report
+		system("cls");
+		report();
 		return false;
 	case(5)://Riassunto Annuale
 		return false;
