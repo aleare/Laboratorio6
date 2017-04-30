@@ -2,6 +2,7 @@
 #include "Transaction.h"
 #include "Date.h"
 #include <vector>
+#include <fstream>
 #include "Rectangle.h"
 #include "Menu.h"
 #include <algorithm>
@@ -14,9 +15,13 @@ public:
 	void addTransaction(Transaction transaction);
 	void removeTransaction(Transaction transaction);
 	void removeTransaction(int ntransaction);
+
 	// Expenses Calculator
 	float monthlyExpenses(Date data);
 	float yearlyExpenses(Date data);
+
+	//File Saving
+	void fileSave(string nomefile);
 
 	static bool valueCmp(Transaction  & a, Transaction  & b);
 
@@ -27,15 +32,17 @@ public:
 	//Cases
 	void menuAddTransaction();
 	void menuRemoveTransaction();
+
 	// Output & Order Functions
 	void print();
 	void orderTransactions();
 	void report();
 	void yearSummary();
+
 	~Index();
-	vector<Transaction> _transazione;
 
 private:
 	Menu menu;
-	// vector<Transaction> _transazione;
+	vector<Transaction> _transazione;
+	int ext = 0;
 };

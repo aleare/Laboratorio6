@@ -9,11 +9,12 @@ public:
 	void operator=(const Amount &equal);
 	bool operator==(const Amount &cmp) const;
 	//Getter
-	float getAmount() const;
+	double getAmount() const;
 	//Setter
 	void setAmount(float amount);
 	//OUT: A string containg "+/-   <amount>"
 	std::string str() const;
+	std::string fStr() const;
 	bool isPositive() const;
 	bool isNegative() const;
 	~Amount();

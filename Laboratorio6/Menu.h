@@ -18,6 +18,7 @@ public:
 	static void transactionAdded(string transaction);
 	static void removeTransactionI();
 	static void removeTransactionE();
+	static string saveFile();
 	static void exit();
 	//Debug
 	static void debug();

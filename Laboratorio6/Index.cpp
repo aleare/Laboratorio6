@@ -53,6 +53,16 @@ float Index::yearlyExpenses(Date data)
 	return tot;
 }
 
+void Index::fileSave(string nomefile)
+{
+	std::ofstream outfile(nomefile);
+	for (int i = 0; i < _transazione.size(); ++i)
+	{
+		outfile << _transazione[i].str() << endl;
+	}
+	outfile.close();
+}
+
 void Index::orderTransactions()
 {
 	//Probabile ERRORE ! (Static)
@@ -77,17 +87,27 @@ bool Index::valueCmp(Transaction  &a, Transaction  &b)
 	else { return true; }
 }
 
+//UI Functions:
 bool Index::init()
 {
-	system("cls");
-	Menu::printMain();
-	int select;
-	cin >> select;
-	if (selection(select) == true)
+	if (ext == 1) //Exit param.
 	{
 		return true;
 	}
-	return false;
+	string sel;	//S save file N discard changes
+	system("cls");
+	Menu::printMain();
+	int select;	//selection param.
+	cin >> select;
+	if (selection(select) == true)
+	{
+		cin >> sel;
+		if (sel == "S") {
+			ext = 1;	//Exit from init loop with true
+		}
+		else { ext = 0; }
+	}
+	return false;	//Exit from init loop with false
 }
 
 bool Index::selection(int selection)
@@ -102,6 +122,9 @@ bool Index::selection(int selection)
 		menuRemoveTransaction();
 		return false;
 	case(3)://Esporta su un file
+		system("cls");
+		fileSave(Menu::saveFile());
+		init();
 		return false;
 	case(4)://Report
 		return false;
@@ -109,7 +132,6 @@ bool Index::selection(int selection)
 		return false;
 	case(6)://Uscita
 		Menu::exit();
-		cin >> sel;
 		//Implementare il salvataggio
 		return true;
 	default:
@@ -185,6 +207,8 @@ void Index::menuRemoveTransaction()
 	init();
 }
 
+//Debug Function:
+
 void Index::print()
 {
 	for (int i = 0; i < _transazione.size(); ++i)
@@ -196,3 +220,6 @@ void Index::print()
 Index::~Index()
 {
 }
+
+///TODO LIST
+//Fix S/N in menuAddTransaction

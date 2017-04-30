@@ -95,7 +95,7 @@ void Transaction::out() const
 std::string Transaction::str() const
 {
 	std::stringstream ss;
-	ss << _data.str() << " " << _description << " " << _amount.str();
+	ss << _data.str() << " " << _description << " " << _amount.fStr();
 	return ss.str();
 }
 

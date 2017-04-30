@@ -49,9 +49,14 @@ int main()
 	//--------------------------------------------
 	//Ui Drawing
 	if (index.init() == true) { //Chiusura
+		//File Saving
 		//File Closing
 		cout << "\n";
 		file.close();
 		return 0;
 	}
+	//File Closing
+	cout << "\n";
+	file.close();
+	return 0;
 }

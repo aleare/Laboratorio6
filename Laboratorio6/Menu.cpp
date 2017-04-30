@@ -55,6 +55,26 @@ void Menu::removeTransactionE()
 		<< Format::endline(MENUSIZE);
 }
 
+string Menu::saveFile()
+{
+	std::cout
+		<< Format::textline("Salvataggio su un file esterno ...", MENUSIZE)
+		<< Format::innerline(MENUSIZE)
+		<< Format::textline("Inserire il nome del file", MENUSIZE)
+		<< Format::blanckline(MENUSIZE)
+		<< Format::endline(MENUSIZE);
+	string out;
+	std::cout << ">>";
+	cin >> out;
+	std::cout
+		<< "\n\n"
+		<< Format::endline(MENUSIZE)
+		<< Format::textline("Verra' creato un file di nome:", MENUSIZE)
+		<< Format::textline(out, MENUSIZE)
+		<< Format::endline(MENUSIZE);
+	return out;
+}
+
 void Menu::exit()
 {
 	system("cls");

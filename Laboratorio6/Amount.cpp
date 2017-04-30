@@ -24,7 +24,7 @@ bool Amount::operator==(const Amount& cmp) const
 	else { return false; }
 }
 
-float Amount::getAmount() const
+double Amount::getAmount() const
 {
 	return _amount;
 }
@@ -50,6 +50,25 @@ std::string Amount::str() const
 	{
 		stringa.append("-  ");
 		stringa.append(std::to_string(_amount));
+	}
+	return stringa;
+}
+std::string Amount::fStr() const
+{
+	std::string stringa;
+	if (_amount > 0)
+	{
+		stringa.append(std::to_string(_amount));
+		stringa.append(" +");
+	}
+	else if (_amount == 0)
+	{
+		stringa.append(std::to_string(_amount));
+	}
+	else
+	{
+		stringa.append(std::to_string(_amount));
+		stringa.append(" -");
 	}
 	return stringa;
 }
