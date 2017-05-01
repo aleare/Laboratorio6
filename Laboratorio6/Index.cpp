@@ -27,23 +27,25 @@ void Index::removeTransaction(int ntransaction)
 	_transazione.erase(_transazione.begin() + ntransaction);
 }
 
-float Index::monthlyExpenses(Date data)
+double Index::monthlyExpenses(Date data)
 {
-	float tot = 0;
-	for (int i = 0; i <= _transazione.size(); ++i)
+	double tot = 0;
+	for (int i = 0; i < _transazione.size(); ++i)
 	{
-		if (_transazione[i].getData().getMonth() == data.getMonth())
-		{
-			tot = tot + _transazione[i].getAmount().getAmount();
+		if (_transazione[i].getData().getYear() == data.getYear()) {
+			if (_transazione[i].getData().getMonth() == data.getMonth())
+			{
+				tot = tot + _transazione[i].getAmount().getAmount();
+			}
 		}
 	}
 	return tot;
 }
 
-float Index::yearlyExpenses(Date data)
+double Index::yearlyExpenses(Date data)
 {
-	float tot = 0;
-	for (int i = 0; i <= _transazione.size(); ++i)
+	double tot = 0;
+	for (int i = 0; i < _transazione.size(); ++i)
 	{
 		if (_transazione[i].getData().getYear() == data.getYear())
 		{
@@ -74,15 +76,44 @@ void Index::report()
 	Menu::report();
 	for (int i = 0; i < _transazione.size(); ++i)
 	{
-		Menu::transaction(_transazione[i].getData().str(), _transazione[i].getDescription(), std::to_string(_transazione[i].getAmount().getAmount()), _transazione[i].getAmount().isPositive());
+		Menu::transactionReport(_transazione[i].getData().str(), _transazione[i].getDescription(), std::to_string(_transazione[i].getAmount().getAmount()), _transazione[i].getAmount().isPositive());
 	}
 	Menu::reportE();
 	system("pause");
 	init();
 }
 
-void Index::yearSummary()
+void Index::yearSummary(int year)
 {
+	double tot = 0;
+	double balance = 0;
+	double plus = 0;
+	double minus = 0;
+	Menu::annualReport();
+	for (int i = 1; i <= 12; ++i)
+	{
+		for (int k = 0; k < _transazione.size(); ++k)
+		{
+			if (_transazione[k].getData().getYear() == year) {
+				if (_transazione[k].getData().getMonth() == i)
+				{
+					if (_transazione[k].isPositive() == true) {
+						plus = plus + _transazione[k].getAmount().getAmount();
+					}
+					else
+					{
+						minus = minus + _transazione[k].getAmount().getAmount();
+					}
+				}
+			}
+		}
+		balance = monthlyExpenses(Date(i, year));
+		tot = tot + balance;
+		Menu::transactionAnnual(Date(i, year).strM(), std::to_string(plus), std::to_string(minus), std::to_string(balance));
+		balance = 0; plus = 0; minus = 0;
+	}
+	std::cout << "\n\nIl Totale dell'anno " << std::to_string(year) << " e':" << std::to_string(tot) << "\n\n";
+	system("pause");
 }
 
 bool Index::valueCmp(Transaction  &a, Transaction  &b)
@@ -121,6 +152,7 @@ bool Index::init()
 bool Index::selection(int selection)
 {
 	string sel(" ");
+	int year;
 	switch (selection)
 	{
 	case(1)://Aggiungi Transazione
@@ -139,10 +171,15 @@ bool Index::selection(int selection)
 		report();
 		return false;
 	case(5)://Riassunto Annuale
+		system("cls");
+		std::cout << "Inserire l'anno:" << "\n" << ">>";
+		std::cin >> year;
+		system("cls");
+		yearSummary(year);
+		init();
 		return false;
 	case(6)://Uscita
 		Menu::exit();
-		//Implementare il salvataggio
 		return true;
 	default:
 		int sselection = 0;
@@ -206,7 +243,7 @@ void Index::menuRemoveTransaction()
 	Menu::removeTransactionI();
 	for (int i = 0; i < _transazione.size(); ++i)
 	{
-		Menu::listTransacion(_transazione[i].str(), i);
+		Menu::transactionDeleteList(_transazione[i].str(), i);
 	}
 	Menu::removeTransactionE();
 	cin >> n;

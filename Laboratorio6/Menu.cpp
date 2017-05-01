@@ -23,6 +23,10 @@ void Menu::printMain()
 		<< "\n\n" << ">>";
 }
 
+void Menu::printTransactions()
+{
+}
+
 void Menu::addTransaction()
 {
 }
@@ -91,10 +95,26 @@ void Menu::reportE()
 		<< Format::endline(MENUSIZE);
 }
 
-void Menu::transaction(string data, string description, string amount, bool positive)
+void Menu::transactionReport(string data, string description, string amount, bool positive)
 {
 	std::cout
 		<< Format::transaction(data, description, amount, positive)
+		<< Format::innerline(MENUSIZE);
+}
+
+void Menu::annualReport()
+{
+	std::cout
+		<< Format::textline("Riassunto Annuale:", MENUSIZE)
+		<< Format::innerline(MENUSIZE)
+		<< Format::yearlySummaryTitle("Mesi", "Guadagni", "Perdite", "Bilancio")
+		<< Format::innerline(MENUSIZE);
+}
+
+void Menu::transactionAnnual(string month, string positive, string negative, string balance)
+{
+	std::cout
+		<< Format::transactionYearly(month, positive, negative, balance)
 		<< Format::innerline(MENUSIZE);
 }
 
@@ -119,7 +139,7 @@ void Menu::debug()
 		<< "\n\n" << ">>";
 }
 
-void Menu::listTransacion(string transaction, int number)
+void Menu::transactionDeleteList(string transaction, int number)
 {
 	std::cout
 		<< Format::opz(number, transaction, MENUSIZE)

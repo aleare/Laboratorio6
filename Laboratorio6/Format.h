@@ -150,4 +150,33 @@ public:
 		out.append("|\n");
 		return out;
 	}
+	static std::string yearlySummaryTitle(string data, string amount, string negativeamount, string balance)
+	{
+		string out(" |");
+		out.append(center(data, 16));
+		out.append("|");
+		out.append(center(amount, 16));
+		out.append("|");
+		out.append(center(negativeamount, 16));
+		out.append("|");
+		out.append(center(balance, 17));
+		out.append("|\n");
+		return out;
+	}
+	static std::string transactionYearly(string data, string positive, string negative, string balance)
+	{
+		string out(" |");
+		positive.resize(9);
+		negative.resize(9);
+		balance.resize(9);
+		out.append(center(data, 16));
+		out.append("|");
+		out.append(center(positive, 16));
+		out.append("|");
+		out.append(center(negative, 16));
+		out.append("|");
+		out.append(center(balance, 16));
+		out.append(" |\n");
+		return out;
+	}
 };

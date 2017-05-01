@@ -17,8 +17,8 @@ public:
 	void removeTransaction(int ntransaction);
 
 	// Expenses Calculator
-	float monthlyExpenses(Date data);
-	float yearlyExpenses(Date data);
+	double monthlyExpenses(Date data);
+	double yearlyExpenses(Date data);
 
 	//File Saving
 	void fileSave(string nomefile);
@@ -37,7 +37,7 @@ public:
 	void print();
 	void orderTransactions();
 	void report();
-	void yearSummary();
+	void yearSummary(int year);
 
 	~Index();
 

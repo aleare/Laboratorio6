@@ -124,6 +124,14 @@ std::string Date::str() const
 	return stringa;
 }
 
+std::string Date::strM() const
+{
+	std::string stringa(std::to_string(_month));
+	stringa.append("/");
+	stringa.append(std::to_string(_year));
+	return stringa;
+}
+
 Date::~Date()
 {
 }

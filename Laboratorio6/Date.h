@@ -22,6 +22,7 @@ public:
 	void setDay(int day);
 	//OUT: A string containing "dd/mm/yyyy"
 	std::string str() const;
+	std::string strM() const;
 	~Date();
 private:
 	int _year;
