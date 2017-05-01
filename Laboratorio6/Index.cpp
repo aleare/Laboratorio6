@@ -67,13 +67,13 @@ void Index::fileSave(string nomefile)
 
 void Index::orderTransactions()
 {
-	//Probabile ERRORE ! (Static)
 	std::sort(_transazione.begin(), _transazione.end(), valueCmp);
 }
 
 void Index::report()
 {
 	Menu::report();
+	orderTransactions();
 	for (int i = 0; i < _transazione.size(); ++i)
 	{
 		Menu::transactionReport(_transazione[i].getData().str(), _transazione[i].getDescription(), std::to_string(_transazione[i].getAmount().getAmount()), _transazione[i].getAmount().isPositive());
